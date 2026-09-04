@@ -1,3 +1,10 @@
+// ============================================
+// CONFIGURATION - Update these values before deployment
+// ============================================
+const WHATSAPP_PHONE = '923017730687'; // WhatsApp phone number (without + or spaces)
+const BUSINESS_NAME = 'Chicken Karahi'; // Business name for WhatsApp messages
+const DOMAIN = 'https://your-domain.com'; // Website domain (replace with actual domain)
+
 // Mobile Menu Toggle
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');
 const navMenu = document.getElementById('navMenu');
@@ -81,6 +88,109 @@ document.querySelectorAll('video').forEach(video => {
             this.play();
         } else {
             this.pause();
+        }
+    });
+});
+
+// PWA Install Banner
+let deferredPrompt;
+const installBanner = document.getElementById('installBanner');
+const installBtn = document.getElementById('installBtn');
+const closeInstallBanner = document.getElementById('closeInstallBanner');
+const navInstallBtn = document.getElementById('navInstallBtn');
+
+// Check if user has dismissed the install banner
+const installBannerDismissed = localStorage.getItem('installBannerDismissed');
+
+// Listen for beforeinstallprompt event
+window.addEventListener('beforeinstallprompt', (e) => {
+    // Prevent Chrome 67 and earlier from automatically showing the prompt
+    e.preventDefault();
+    // Stash the event so it can be triggered later
+    deferredPrompt = e;
+
+    // Show install banner if not dismissed
+    if (!installBannerDismissed) {
+        installBanner.style.display = 'block';
+    }
+
+    // Show nav install button
+    if (navInstallBtn) {
+        navInstallBtn.style.display = 'block';
+    }
+});
+
+// Install button click handler
+if (installBtn) {
+    installBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+            // Show the install prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            const { outcome } = await deferredPrompt.userChoice;
+            // We've used the prompt, and can't use it again
+            deferredPrompt = null;
+            // Hide the install banner
+            installBanner.style.display = 'none';
+            // Hide nav install button
+            if (navInstallBtn) {
+                navInstallBtn.style.display = 'none';
+            }
+        }
+    });
+}
+
+// Nav install button click handler
+if (navInstallBtn) {
+    navInstallBtn.addEventListener('click', async () => {
+        if (deferredPrompt) {
+            // Show the install prompt
+            deferredPrompt.prompt();
+            // Wait for the user to respond to the prompt
+            const { outcome } = await deferredPrompt.userChoice;
+            // We've used the prompt, and can't use it again
+            deferredPrompt = null;
+            // Hide nav install button
+            navInstallBtn.style.display = 'none';
+        }
+    });
+}
+
+// Close install banner
+if (closeInstallBanner) {
+    closeInstallBanner.addEventListener('click', () => {
+        installBanner.style.display = 'none';
+        localStorage.setItem('installBannerDismissed', 'true');
+        if (navInstallBtn) {
+            navInstallBtn.style.display = 'none';
+        }
+    });
+}
+
+// Hide install banner when app is installed
+window.addEventListener('appinstalled', () => {
+    installBanner.style.display = 'none';
+    if (navInstallBtn) {
+        navInstallBtn.style.display = 'none';
+    }
+    localStorage.removeItem('installBannerDismissed');
+});
+
+// WhatsApp Ordering Function
+function orderOnWhatsApp(itemName) {
+    const message = `Assalam o Alaikum, I would like to order ${itemName} from ${BUSINESS_NAME}. Please confirm availability and total price.`;
+    const whatsappUrl = `https://wa.me/${WHATSAPP_PHONE}?text=${encodeURIComponent(message)}`;
+    window.open(whatsappUrl, '_blank');
+}
+
+// Add click handlers to all order buttons
+document.querySelectorAll('.order-btn, .btn-small').forEach(button => {
+    button.addEventListener('click', function(e) {
+        // Find the menu item name
+        const menuItem = this.closest('.menu-item');
+        if (menuItem) {
+            const itemName = menuItem.querySelector('h3').textContent;
+            orderOnWhatsApp(itemName);
         }
     });
 });

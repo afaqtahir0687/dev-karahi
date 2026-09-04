@@ -1,3 +1,11 @@
+# Robots.txt for Chicken Karahi Website
+# Replace your-domain.com with your actual domain before deployment
+
 User-agent: *
 Allow: /
+
+# Disallow specific paths if needed
+# Disallow: /admin/
+# Disallow: /private/
+
 Sitemap: https://your-domain.com/sitemap.xml

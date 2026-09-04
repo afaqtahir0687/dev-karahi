@@ -5,16 +5,103 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="Authentic Chicken Karahi and Pakistani Desi Food - Fresh ingredients, made to order, hygienic kitchen, fast delivery. Order now on WhatsApp!">
     <meta name="keywords" content="Chicken Karahi, Pakistani Food, Desi Food, Restaurant, Delivery, WhatsApp Order">
+    <meta name="theme-color" content="#8B0000">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="Karahi">
+    
+    <!-- Open Graph Meta Tags -->
+    <meta property="og:title" content="Chicken Karahi - Authentic Pakistani Desi Food">
+    <meta property="og:description" content="Authentic Chicken Karahi and Pakistani Desi Food - Fresh ingredients, made to order, hygienic kitchen, fast delivery. Order now on WhatsApp!">
+    <meta property="og:image" content="https://your-domain.com/assets/images/karahi.png">
+    <meta property="og:url" content="https://your-domain.com/">
+    <meta property="og:type" content="restaurant">
+    <meta property="og:locale" content="en_US">
+    
+    <!-- Twitter Card Meta Tags -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Chicken Karahi - Authentic Pakistani Desi Food">
+    <meta name="twitter:description" content="Authentic Chicken Karahi and Pakistani Desi Food - Fresh ingredients, made to order, hygienic kitchen, fast delivery. Order now on WhatsApp!">
+    <meta name="twitter:image" content="https://your-domain.com/assets/images/karahi.png">
+    
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://your-domain.com/">
+    
     <title>Chicken Karahi - Authentic Pakistani Desi Food</title>
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
+    <link rel="icon" type="image/png" href="assets/icons/icon-192x192.png" sizes="192x192">
+    <link rel="icon" type="image/png" href="assets/icons/icon-512x512.png" sizes="512x512">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=Open+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- JSON-LD Structured Data for Restaurant/LocalBusiness -->
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Restaurant",
+      "name": "Chicken Karahi",
+      "alternateName": "Karahi House",
+      "description": "Authentic Pakistani Chicken Karahi and Desi Food - Fresh ingredients, made to order, hygienic kitchen, fast delivery.",
+      "url": "https://your-domain.com/",
+      "telephone": "+923017730687",
+      "email": "info@your-domain.com",
+      "address": {
+        "@type": "PostalAddress",
+        "streetAddress": "Musa St, Johar View, Near Doctor Hospital",
+        "addressLocality": "Lahore",
+        "addressRegion": "Punjab",
+        "postalCode": "54000",
+        "addressCountry": "PK"
+      },
+      "geo": {
+        "@type": "GeoCoordinates",
+        "latitude": "31.5204",
+        "longitude": "74.3587"
+      },
+      "openingHoursSpecification": [
+        {
+          "@type": "OpeningHoursSpecification",
+          "dayOfWeek": [
+            "Monday",
+            "Tuesday",
+            "Wednesday",
+            "Thursday",
+            "Friday",
+            "Saturday",
+            "Sunday"
+          ],
+          "opens": "11:00",
+          "closes": "23:00"
+        }
+      ],
+      "priceRange": "$$",
+      "servesCuisine": "Pakistani, Desi, Karahi",
+      "menu": "https://your-domain.com/#menu",
+      "image": [
+        "https://your-domain.com/assets/images/karahi.png",
+        "https://your-domain.com/assets/images/chicken.png"
+      ],
+      "contactPoint": {
+        "@type": "ContactPoint",
+        "telephone": "+923017730687",
+        "contactType": "customer service",
+        "availableLanguage": "English, Urdu"
+      },
+      "sameAs": [
+        "https://www.facebook.com/your-domain",
+        "https://www.instagram.com/your-domain",
+        "https://twitter.com/your-domain"
+      ]
+    }
+    </script>
 </head>
 <body>
     <!-- Header / Navbar -->
-    <header class="header">
-        <nav class="navbar">
+    <header class="header" role="banner">
+        <nav class="navbar" role="navigation" aria-label="Main navigation">
             <div class="container">
                 <div class="nav-brand">
                     <div class="logo">🍛 Karahi House</div>
@@ -24,24 +111,25 @@
                     <span></span>
                     <span></span>
                 </button>
-                <ul class="nav-menu" id="navMenu">
-                    <li><a href="#home" class="nav-link">Home</a></li>
-                    <li><a href="#menu" class="nav-link">Menu</a></li>
-                    <li><a href="#about" class="nav-link">About</a></li>
-                    <li><a href="#gallery" class="nav-link">Gallery</a></li>
-                    <li><a href="#contact" class="nav-link">Contact</a></li>
+                <ul class="nav-menu" id="navMenu" role="menubar" aria-label="Main menu">
+                    <li><a href="#home" class="nav-link" role="menuitem">Home</a></li>
+                    <li><a href="#menu" class="nav-link" role="menuitem">Menu</a></li>
+                    <li><a href="#about" class="nav-link" role="menuitem">About</a></li>
+                    <li><a href="#gallery" class="nav-link" role="menuitem">Gallery</a></li>
+                    <li><a href="#contact" class="nav-link" role="menuitem">Contact</a></li>
                     <li><a href="https://wa.me/923017730687" class="btn btn-primary" target="_blank">Order Now</a></li>
+                    <li><button id="navInstallBtn" class="nav-install-btn" style="display: none;">Install App</button></li>
                 </ul>
             </div>
         </nav>
     </header>
 
     <!-- Hero Section -->
-    <section id="home" class="hero">
+    <section id="home" class="hero" role="main" aria-labelledby="hero-heading">
         <div class="container">
             <div class="hero-content">
                 <div class="hero-text">
-                    <h1>Authentic Chicken Karahi</h1>
+                    <h1 id="hero-heading">Authentic Chicken Karahi</h1>
                     <p class="hero-subtitle">Taste the Tradition of Pakistani Desi Cooking</p>
                     <p class="hero-description">Fresh ingredients, authentic spices, and the perfect karahi experience delivered to your doorstep.</p>
                     <div class="hero-buttons">
@@ -60,15 +148,30 @@
         </div>
     </section>
 
+    <!-- Install App Banner -->
+    <div id="installBanner" class="install-banner" style="display: none;" role="alert" aria-live="polite">
+        <div class="install-banner-content">
+            <div class="install-banner-icon">
+                <img src="assets/icons/icon-192x192.png" alt="Chicken Karahi App" class="install-icon">
+            </div>
+            <div class="install-banner-text">
+                <h4>Install Chicken Karahi App</h4>
+                <p>Order faster from your phone.</p>
+            </div>
+            <button id="installBtn" class="install-btn">Install App</button>
+            <button id="closeInstallBanner" class="close-install-btn" aria-label="Close install banner">✕</button>
+        </div>
+    </div>
+
     <!-- Video Section -->
-    <section class="video-section">
+    <section class="video-section" aria-labelledby="video-heading">
         <div class="container">
             <div class="section-header">
-                <h2>See Our Karahi in Action</h2>
+                <h2 id="video-heading">See Our Karahi in Action</h2>
                 <p class="section-subtitle">Watch How We Prepare Our Signature Dishes Fresh</p>
             </div>
             <div class="video-container">
-                <video class="main-video" controls loop playsinline poster="assets/images/karahi.png">
+                <video class="main-video" controls loop playsinline poster="assets/images/karahi.png" loading="lazy" aria-label="Video showing karahi preparation">
                     <source src="assets/images/karahi-video.mp4" type="video/mp4">
                     Your browser does not support the video tag.
                 </video>
@@ -108,87 +211,55 @@
     </section>
 
     <!-- Popular Menu -->
-    <section id="menu" class="menu">
+    <section id="menu" class="menu" aria-labelledby="menu-heading">
         <div class="container">
             <div class="section-header">
-                <h2>Popular Menu</h2>
+                <h2 id="menu-heading">Popular Menu</h2>
                 <p class="section-subtitle">Our Best-Selling Dishes</p>
             </div>
             <div class="menu-grid">
                 <div class="menu-item">
-                    <img src="assets/images/chicken.png" alt="Chicken Karahi" class="menu-img" style="width: 100%; height: 200px; object-fit: cover;">
+                    <img src="assets/images/chicken.png" alt="Chicken Karahi" class="menu-img" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
                     <div class="menu-content">
                         <h3>Chicken Karahi</h3>
                         <p class="menu-description">Fresh chicken cooked with tomatoes, ginger, green chilies and desi spices.</p>
                         <div class="menu-footer">
                             <span class="price">Rs. 1,099</span>
-                            <a href="#order" class="btn btn-small">Order</a>
+                            <button class="btn btn-small order-btn" aria-label="Order Chicken Karahi">Order</button>
                         </div>
                     </div>
                 </div>
+
                 <div class="menu-item">
-                    <img src="assets/images/placeholder.svg" alt="Special Chicken Karahi" class="menu-img" style="width: 100%; height: 200px; object-fit: cover;">
-                    <div class="menu-content">
-                        <h3>Special Chicken Karahi</h3>
-                        <p class="menu-description">House special karahi with extra masala and fresh garnish.</p>
-                        <div class="menu-footer">
-                            <span class="price">Rs. 1,299</span>
-                            <a href="#order" class="btn btn-small">Order</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="assets/images/placeholder.svg" alt="Mutton Karahi" class="menu-img" style="width: 100%; height: 200px; object-fit: cover;">
-                    <div class="menu-content">
-                        <h3>Mutton Karahi</h3>
-                        <p class="menu-description">Tender mutton cooked in traditional karahi masala.</p>
-                        <div class="menu-footer">
-                            <span class="price">Rs. 1,799</span>
-                            <a href="#order" class="btn btn-small">Order</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="assets/images/placeholder.svg" alt="Chicken Tikka" class="menu-img" style="width: 100%; height: 200px; object-fit: cover;">
-                    <div class="menu-content">
-                        <h3>Chicken Tikka</h3>
-                        <p class="menu-description">Char-grilled marinated chicken with smoky flavor.</p>
-                        <div class="menu-footer">
-                            <span class="price">Rs. 399</span>
-                            <a href="#order" class="btn btn-small">Order</a>
-                        </div>
-                    </div>
-                </div>
-                <div class="menu-item">
-                    <img src="assets/images/naan.png" alt="Garlic Naan" class="menu-img" style="width: 100%; height: 200px; object-fit: cover;">
+                    <img src="assets/images/naan.png" alt="Garlic Naan" class="menu-img" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
                     <div class="menu-content">
                         <h3>Garlic Naan</h3>
                         <p class="menu-description">Fresh tandoori naan finished with garlic and butter.</p>
                         <div class="menu-footer">
                             <span class="price">Rs. 120</span>
-                            <a href="#order" class="btn btn-small">Order</a>
+                            <button class="btn btn-small order-btn" aria-label="Order Garlic Naan">Order</button>
                         </div>
                     </div>
                 </div>
                 <div class="menu-item">
-                    <img src="assets/images/coldring.png" alt="Raita" class="menu-img" style="width: 100%; height: 200px; object-fit: cover;">
+                    <img src="assets/images/coldring.png" alt="Raita" class="menu-img" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
                     <div class="menu-content">
                         <h3>Raita</h3>
                         <p class="menu-description">Fresh chilled yogurt raita.</p>
                         <div class="menu-footer">
                             <span class="price">Rs. 100</span>
-                            <a href="#order" class="btn btn-small">Order</a>
+                            <button class="btn btn-small order-btn" aria-label="Order Raita">Order</button>
                         </div>
                     </div>
                 </div>
                 <div class="menu-item">
-                    <img src="assets/images/salad.png" alt="Fresh Salad" class="menu-img" style="width: 100%; height: 200px; object-fit: cover;">
+                    <img src="assets/images/salad.png" alt="Fresh Salad" class="menu-img" style="width: 100%; height: 200px; object-fit: cover;" loading="lazy">
                     <div class="menu-content">
                         <h3>Fresh Salad</h3>
                         <p class="menu-description">Cucumber, onion, tomato and lemon.</p>
                         <div class="menu-footer">
                             <span class="price">Rs. 120</span>
-                            <a href="#order" class="btn btn-small">Order</a>
+                            <button class="btn btn-small order-btn" aria-label="Order Fresh Salad">Order</button>
                         </div>
                     </div>
                 </div>
@@ -211,19 +282,19 @@
                     <a href="#order" class="btn btn-primary btn-large">Order This Deal</a>
                 </div>
                 <div class="deal-image">
-                    <img src="assets/images/placeholder.svg" alt="Family Karahi Combo" class="deal-img" style="width: 100%; max-width: 400px; height: auto;">
+                    <img src="assets/images/placeholder.svg" alt="Family Karahi Combo" class="deal-img" style="width: 100%; max-width: 400px; height: auto;" loading="lazy">
                 </div>
             </div>
         </div>
     </section>
 
     <!-- About Us -->
-    <section id="about" class="about">
+    <section id="about" class="about" aria-labelledby="about-heading">
         <div class="container">
             <div class="about-content">
                 <div class="about-text">
                     <div class="section-header">
-                        <h2>About Us</h2>
+                        <h2 id="about-heading">About Us</h2>
                         <p class="section-subtitle">Our Story & Passion</p>
                     </div>
                     <p>Welcome to Karahi House, where tradition meets taste. We started with a simple mission: to bring authentic Pakistani karahi flavors to your table. Our recipes have been passed down through generations, preserving the rich culinary heritage of Pakistan.</p>
@@ -231,7 +302,7 @@
                     <p>Our commitment to quality, hygiene, and customer satisfaction has made us a trusted name in desi food. Whether you're craving a spicy chicken karahi or a comforting mutton dish, we're here to serve you the best.</p>
                 </div>
                 <div class="about-image">
-                    <img src="assets/images/placeholder.svg" alt="Our Kitchen" class="about-img" style="width: 100%; max-width: 500px; height: auto;">
+                    <img src="assets/images/placeholder.svg" alt="Our Kitchen" class="about-img" style="width: 100%; max-width: 500px; height: auto;" loading="lazy">
                 </div>
             </div>
         </div>
@@ -280,19 +351,19 @@
     </section>
 
     <!-- Food Gallery -->
-    <section id="gallery" class="gallery">
+    <section id="gallery" class="gallery" aria-labelledby="gallery-heading">
         <div class="container">
             <div class="section-header">
-                <h2>Food Gallery</h2>
+                <h2 id="gallery-heading">Food Gallery</h2>
                 <p class="section-subtitle">A Feast for Your Eyes</p>
             </div>
             <div class="gallery-grid">
-                <img src="assets/images/karahi.png" alt="Chicken Karahi" class="gallery-img" style="width: 100%; height: 250px; object-fit: cover;">
-                <img src="assets/images/chicken.png" alt="Mutton Karahi" class="gallery-img" style="width: 100%; height: 250px; object-fit: cover;">
-                <img src="assets/images/naan.png" alt="Chicken Tikka" class="gallery-img" style="width: 100%; height: 250px; object-fit: cover;">
-                <img src="assets/images/naan+roti.png" alt="Fresh Naan" class="gallery-img" style="width: 100%; height: 250px; object-fit: cover;">
-                <img src="assets/images/salad.png" alt="Special Karahi" class="gallery-img" style="width: 100%; height: 250px; object-fit: cover;">
-                <img src="assets/images/coldring.png" alt="Desi Feast" class="gallery-img" style="width: 100%; height: 250px; object-fit: cover;">
+                <img src="assets/images/karahi.png" alt="Chicken Karahi" class="gallery-img" style="width: 100%; height: 250px; object-fit: cover;" loading="lazy">
+                <img src="assets/images/chicken.png" alt="Mutton Karahi" class="gallery-img" style="width: 100%; height: 250px; object-fit: cover;" loading="lazy">
+                <img src="assets/images/naan.png" alt="Chicken Tikka" class="gallery-img" style="width: 100%; height: 250px; object-fit: cover;" loading="lazy">
+                <img src="assets/images/naan+roti.png" alt="Fresh Naan" class="gallery-img" style="width: 100%; height: 250px; object-fit: cover;" loading="lazy">
+                <img src="assets/images/salad.png" alt="Special Karahi" class="gallery-img" style="width: 100%; height: 250px; object-fit: cover;" loading="lazy">
+                <img src="assets/images/coldring.png" alt="Desi Feast" class="gallery-img" style="width: 100%; height: 250px; object-fit: cover;" loading="lazy">
             </div>
         </div>
     </section>
@@ -371,37 +442,37 @@
     </section>
 
     <!-- Location / Contact -->
-    <section id="contact" class="contact">
+    <section id="contact" class="contact" aria-labelledby="contact-heading">
         <div class="container">
             <div class="section-header">
-                <h2>Contact Us</h2>
+                <h2 id="contact-heading">Contact Us</h2>
                 <p class="section-subtitle">Get in Touch</p>
             </div>
             <div class="contact-content">
                 <div class="contact-info">
                     <div class="contact-item">
-                        <div class="contact-icon">📍</div>
+                        <div class="contact-icon" aria-hidden="true">📍</div>
                         <div>
                             <h3>Address</h3>
                             <p>Musa St, Johar View, Near Doctor Hospital, Lahore, Pakistan</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">📞</div>
+                        <div class="contact-icon" aria-hidden="true">📞</div>
                         <div>
                             <h3>Phone</h3>
                             <p>0301 7730687</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">💬</div>
+                        <div class="contact-icon" aria-hidden="true">💬</div>
                         <div>
                             <h3>WhatsApp</h3>
                             <p>0301 7730687</p>
                         </div>
                     </div>
                     <div class="contact-item">
-                        <div class="contact-icon">🕐</div>
+                        <div class="contact-icon" aria-hidden="true">🕐</div>
                         <div>
                             <h3>Opening Hours</h3>
                             <p>Monday - Sunday: 11:00 AM - 11:00 PM</p>
@@ -409,9 +480,9 @@
                     </div>
                 </div>
                 <div class="contact-map">
-                    <a href="https://maps.app.goo.gl/81vYikj9jDfmQjdg7" target="_blank" class="map-link">
+                    <a href="https://maps.app.goo.gl/81vYikj9jDfmQjdg7" target="blank" class="map-link" aria-label="View location on Google Maps">
                         <div class="map-placeholder">
-                            <div class="map-icon">🗺️</div>
+                            <div class="map-icon" aria-hidden="true">🗺️</div>
                             <h3>View on Google Maps</h3>
                             <p>Musa St, Johar View, Near Doctor Hospital, Lahore</p>
                         </div>
@@ -436,7 +507,7 @@
     </section>
 
     <!-- Footer -->
-    <footer class="footer">
+    <footer class="footer" role="contentinfo">
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
@@ -462,9 +533,9 @@
                 <div class="footer-social">
                     <h4>Follow Us</h4>
                     <div class="social-links">
-                        <a href="#" class="social-link">Facebook</a>
-                        <a href="#" class="social-link">Instagram</a>
-                        <a href="#" class="social-link">Twitter</a>
+                        <a href="#" class="social-link" aria-label="Facebook">Facebook</a>
+                        <a href="#" class="social-link" aria-label="Instagram">Instagram</a>
+                        <a href="#" class="social-link" aria-label="Twitter">Twitter</a>
                     </div>
                 </div>
             </div>
@@ -479,5 +550,19 @@
     </footer>
 
     <script src="assets/js/script.js"></script>
+    <script>
+        // Service Worker Registration
+        if ('serviceWorker' in navigator) {
+            window.addEventListener('load', () => {
+                navigator.serviceWorker.register('/sw.js')
+                    .then(registration => {
+                        console.log('Service Worker registered with scope:', registration.scope);
+                    })
+                    .catch(error => {
+                        console.log('Service Worker registration failed:', error);
+                    });
+            });
+        }
+    </script>
 </body>
 </html>

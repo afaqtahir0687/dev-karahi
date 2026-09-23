@@ -3,7 +3,22 @@
 // ============================================
 const WHATSAPP_PHONE = '923017730687'; // WhatsApp phone number (without + or spaces)
 const BUSINESS_NAME = 'Chicken Karahi'; // Business name for WhatsApp messages
-const DOMAIN = 'https://your-domain.com'; // Website domain (replace with actual domain)
+const DOMAIN = 'https://dev-karahi.vercel.app'; // Website domain (replace with actual domain)
+
+// ============================================
+// SERVICE WORKER REGISTRATION
+// ============================================
+if ('serviceWorker' in navigator) {
+    window.addEventListener('load', () => {
+        navigator.serviceWorker.register('/sw.js')
+            .then(registration => {
+                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+            })
+            .catch(error => {
+                console.log('ServiceWorker registration failed: ', error);
+            });
+    });
+}
 
 // Mobile Menu Toggle
 const mobileMenuBtn = document.getElementById('mobileMenuBtn');

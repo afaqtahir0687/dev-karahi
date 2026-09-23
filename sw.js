@@ -1,4 +1,4 @@
-const CACHE_NAME = 'karahi-house-v1';
+const CACHE_NAME = 'karahi-house-v2';
 const urlsToCache = [
   '/',
   '/index.html',
@@ -10,8 +10,8 @@ const urlsToCache = [
   '/assets/images/naan.png',
   '/assets/images/salad.png',
   '/assets/images/coldring.png',
-  '/assets/icons/icon-192x192.png',
-  '/assets/icons/icon-512x512.png'
+  '/assets/icons/icon-192x192.svg',
+  '/assets/icons/icon-512x512.svg'
 ];
 
 // Install event - cache important assets

@@ -6,6 +6,7 @@
     <meta name="description" content="Authentic Chicken Karahi and Pakistani Desi Food - Fresh ingredients, made to order, hygienic kitchen, fast delivery. Order now on WhatsApp!">
     <meta name="keywords" content="Chicken Karahi, Pakistani Food, Desi Food, Restaurant, Delivery, WhatsApp Order">
     <meta name="theme-color" content="#8B0000">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <meta name="apple-mobile-web-app-title" content="Karahi">
@@ -28,10 +29,14 @@
     <link rel="canonical" href="https://dev-karahi.vercel.app/">
     
     <title>Chicken Karahi - Authentic Pakistani Desi Food</title>
+    <script>
+        // Debug: Log when manifest is loaded
+        console.log('Manifest link:', document.querySelector('link[rel="manifest"]')?.href);
+    </script>
     <link rel="manifest" href="manifest.json">
-    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.png">
-    <link rel="icon" type="image/png" href="assets/icons/icon-192x192.png" sizes="192x192">
-    <link rel="icon" type="image/png" href="assets/icons/icon-512x512.png" sizes="512x512">
+    <link rel="apple-touch-icon" href="assets/icons/icon-192x192.svg">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/icon-192x192.svg" sizes="192x192">
+    <link rel="icon" type="image/svg+xml" href="assets/icons/icon-512x512.svg" sizes="512x512">
     <link rel="stylesheet" href="assets/css/style.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>

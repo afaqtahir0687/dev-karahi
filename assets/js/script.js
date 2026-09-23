@@ -12,12 +12,15 @@ if ('serviceWorker' in navigator) {
     window.addEventListener('load', () => {
         navigator.serviceWorker.register('/sw.js')
             .then(registration => {
-                console.log('ServiceWorker registration successful with scope: ', registration.scope);
+                console.log('✅ ServiceWorker registration successful with scope: ', registration.scope);
+                console.log('Service Worker state:', registration.installing ? 'installing' : registration.waiting ? 'waiting' : 'active');
             })
             .catch(error => {
-                console.log('ServiceWorker registration failed: ', error);
+                console.log('❌ ServiceWorker registration failed: ', error);
             });
     });
+} else {
+    console.log('❌ Service Worker not supported in this browser');
 }
 
 // Mobile Menu Toggle
@@ -119,19 +122,23 @@ const installBannerDismissed = localStorage.getItem('installBannerDismissed');
 
 // Listen for beforeinstallprompt event
 window.addEventListener('beforeinstallprompt', (e) => {
+    console.log('✅ beforeinstallprompt event fired!');
     // Prevent Chrome 67 and earlier from automatically showing the prompt
     e.preventDefault();
     // Stash the event so it can be triggered later
     deferredPrompt = e;
+    console.log('Install prompt ready to show');
 
     // Show install banner if not dismissed
     if (!installBannerDismissed) {
         installBanner.style.display = 'block';
+        console.log('Install banner shown');
     }
 
     // Show nav install button
     if (navInstallBtn) {
         navInstallBtn.style.display = 'block';
+        console.log('Nav install button shown');
     }
 });
 
@@ -184,12 +191,42 @@ if (closeInstallBanner) {
 
 // Hide install banner when app is installed
 window.addEventListener('appinstalled', () => {
+    console.log('✅ App was installed!');
     installBanner.style.display = 'none';
     if (navInstallBtn) {
         navInstallBtn.style.display = 'none';
     }
     localStorage.removeItem('installBannerDismissed');
 });
+
+// Debug: Check PWA installability
+setTimeout(() => {
+    console.log('=== PWA Debug Info ===');
+    console.log('Service Worker supported:', 'serviceWorker' in navigator);
+    console.log('Before install prompt supported:', 'onbeforeinstallprompt' in window);
+    console.log('Is secure context:', window.isSecureContext);
+    console.log('Current URL:', window.location.href);
+    console.log('User agent:', navigator.userAgent);
+
+    // Check if app is already installed
+    if (window.matchMedia('(display-mode: standalone)').matches) {
+        console.log('✅ App is already installed and running in standalone mode');
+    } else {
+        console.log('ℹ️ App is not installed or running in browser mode');
+    }
+
+    // Check service worker status
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.getRegistration().then(registration => {
+            if (registration) {
+                console.log('Service Worker registered:', registration.scope);
+                console.log('Service Worker state:', registration.active ? 'active' : 'not active');
+            } else {
+                console.log('❌ No Service Worker registration found');
+            }
+        });
+    }
+}, 2000);
 
 // WhatsApp Ordering Function
 function orderOnWhatsApp(itemName) {
